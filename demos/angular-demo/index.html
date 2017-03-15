@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular的例子</title>
+    <script src="angular.1.4.8.min.js"></script>
+  </head>
+  <body>
+    <h1>AngularJS的双向绑定</h1>
+    <div ng-app="myApp" ng-init="person={firstName:'wfl',lastName:'hahaha'}" ng-controller="myCon">
+      <p>姓名：<input type="text" ng-model="name" placeholder="请输入您的名字"></p>
+      <h1>ng-model--- 您好，{{name}}</h1>
+
+      <hr>
+      <p>对象表达式--- 姓为:{{person.lastName}}</p>
+      <p>对象ng-bind--- 姓为:<span ng-bind="person.lastName"></span></p>
+
+      <hr>
+      <input ng-model="test">
+      <p>{{greeting}}</p>
+      <button ng-click="sayHello()">点我</button>
+    </div>
+
+    <script>
+      var app=angular.module('myApp',[]);
+      app.controller('myCon', function($scope){
+        $scope.test="wfl";
+        $scope.sayHello = function(){
+          $scope.greeting = 'Hello ' + $scope.test +'!';
+        };
+      });
+    </script>
+  </body>
+</html>
