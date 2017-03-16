@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue 例子</title>
+  </head>
+  <body>
+    <h1>Vue简单例子</h1>
+    <div id="first">
+      <p>这是用双大括号进行数据绑定： {{ message }}</p>
+      这个是用v-html命令进行数据绑定： <div v-html="message"></div>
+
+      <hr>
+      <input type="text" v-model="hahaha">
+      <p>{{ hahaha }}</p>
+
+    </div>
+    <script src="vue.min.js"></script>
+    <script src="index1.js"></script>
+
+  </body>
+</html>
