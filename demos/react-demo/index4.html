@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.min.js"></script>
+  </head>
+  <body>
+    <h1>react的状态</h1>
+    <div id="example"></div>
+    <script type="text/babel">
+      class MyApp extends React.Component{
+        constructor(...args){
+          super(...args);
+          this.state={
+            text:false
+          };
+        }
+        handleClick(){
+          this.setState({text:!this.state.text});
+        }
+        render(){
+          var text=this.state.text ? '喜欢': '不喜欢';
+          return<h2 onClick={this.handleClick.bind(this)}>
+            如果你{text}我，点击我改变状态
+          </h2>
+        }
+      };
+      ReactDOM.render(
+        <MyApp />,
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>
