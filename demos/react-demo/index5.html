@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.min.js"></script>
+  </head>
+  <body>
+    <h1>React 显示时间</h1>
+    <div id="example"></div>
+    <script type="text/babel">
+      class MyApp extends React.Component{
+          constructor(...args){
+            super(...args);
+            this.state={
+              text:'World'
+            };
+          }
+          handleClick(){
+            var d = new Date();
+            var year=d.getFullYear() // 当前年份
+            var month=d.getMonth() + 1 // 当前月份
+            var date=d.getDate()
+            var time=year+':'+month+':'+date
+            this.setState({ text:time });
+          }
+          render(){
+            return<p onClick={this.handleClick.bind(this)}>{'Hello '+this.state.text}</p>;
+          }
+      };
+      ReactDOM.render(
+        <MyApp/>,
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>
